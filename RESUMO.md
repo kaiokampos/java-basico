@@ -226,8 +226,31 @@ a += 5;  // a = 15
 a *= 2;  // a = 30
 System.out.println(a);
 ```
+## **6. Expressão Condicional Ternária**
+### **Definição**
+Alternativa simplificada ao if-else para atribuição de valores.
 
+Sintaxe: `(condição) ? valor_se_verdadeiro : valor_se_falso.`
 
+### **Exemplo**
+```java
+int preco = 50;
+String desconto = (preco > 100) ? "10%" : "5%";
+System.out.println(desconto);
+```
+## **7. Escopo e Inicialização de Variáveis**
+### **Definição**
+Escopo: a região do programa onde a variável é válida. Se ela for declarada dentro do escopo da funão só será válida dentro da função.
+Inicialização: uma variável deve ser inicializada antes de ser usada.
+
+### **Exemplo**
+```java
+int x;
+if (true) {
+x = 10;  // Inicialização dentro do escopo
+        }
+        System.out.println(x);  // OK
+```
 
 
 
