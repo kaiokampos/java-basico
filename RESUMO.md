@@ -251,7 +251,23 @@ x = 10;  // Inicialização dentro do escopo
         }
         System.out.println(x);  // OK
 ```
+# Estruturas Repetitivas em Java
 
+Este resumo aborda os principais conceitos e exemplos de estruturas repetitivas em Java. Estas estruturas são usadas para executar blocos de código várias vezes, dependendo de condições específicas.
+
+---
+
+## **1. Estrutura Repetitiva `while`**
+### **Definição**
+- Repete um bloco de comandos enquanto a condição for verdadeira.
+- Usada quando **não se sabe previamente a quantidade de repetições**.
+
+### **Sintaxe**
+```java
+while (condição) {
+    // comandos
+}
+```
 
 
 
