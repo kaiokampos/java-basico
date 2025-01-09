@@ -17,6 +17,7 @@
         <module>casting</module>
         <module>entrada-de-dados</module>
         <module>exercicios-sequenciais</module>
+        <module>exercicio-estrutura-repetitiva</module>
     </modules>
 
     <properties>

@@ -268,6 +268,21 @@ while (condição) {
     // comandos
 }
 ```
+Exemplo
+Problema: Somar números inteiros até que seja digitado 0.
+```java
+import java.util.Scanner;
 
+Scanner sc = new Scanner(System.in);
+int soma = 0;
+int num = sc.nextInt();
+
+while (num != 0) {
+    soma += num;
+    num = sc.nextInt();
+}
+System.out.println("Soma: " + soma);
+sc.close();
+```
 
 
