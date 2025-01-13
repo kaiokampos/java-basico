@@ -337,8 +337,238 @@ double F = 9.0 * C / 5.0 + 32.0;
     System.out.printf("Equivalente em Fahrenheit: %.1f%n", F);
 
     System.out.print("Deseja repetir (s/n)? ");
-resposta = sc.next().charAt(0);
+    resposta = sc.next().charAt(0);
 } while (resposta != 'n');
 
         sc.close();
 ```
+
+# Programação Orientada a Objetos com Java
+Primeiramente precisamos ve um código ou problema sem orientação a objetos, para podermos entender a solução com orientação a objetos
+
+Problema: Fazer um programa para ler as medidas dos lados de dois triângulos X e Y (suponha medidas
+válidas). Em seguida, mostrar o valor das áreas dos dois triângulos e dizer qual dos dois triângulos
+possui a maior área.
+A fórmula para calcular a área de um triângulo a partir das medidas de seus lados a, b e c é a
+seguinte (fórmula de Heron):
+
+```java
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Program {
+       public static void main(String[] args) {
+
+          Locale.setDefault(Locale.US);
+          Scanner sc = new Scanner(System.in);
+          double xA, xB, xC, yA, yB, yC;
+          
+          System.out.println("Enter the measures of triangle X: ");
+          xA = sc.nextDouble();
+          xB = sc.nextDouble();
+          xC = sc.nextDouble();
+          
+          System.out.println("Enter the measures of triangle Y: ");
+          yA = sc.nextDouble();
+          yB = sc.nextDouble();
+          yC = sc.nextDouble();
+          
+          double p = (xA + xB + xC) / 2.0;
+          double areaX = Math.sqrt(p * (p - xA) * (p - xB) * (p - xC));
+          
+          p = (yA + yB + yC) / 2.0;
+          double areaY = Math.sqrt(p * (p - yA) * (p - yB) * (p - yC));
+          
+          System.out.printf("Triangle X area: %.4f%n", areaX);
+          System.out.printf("Triangle Y area: %.4f%n", areaY);
+          
+          if (areaX > areaY) {
+              System.out.println("Larger area: X");
+          } else {
+              System.out.println("Larger area: Y");
+          }
+          
+          sc.close();
+   }
+}
+```
+Como podemos observar e pontuar no código acima, para representar o triângulo tivemos que usar 3 variáveis diferentes para 
+cada lado do triângulo, vou pontuar alguns "defeitos", uso de memória, legibilidade, desempenho...
+
+## Vou apresentar uns conceitos sobre Orientação a Objetos
+A programação orientada a objetos (POO) é um paradigma que organiza o código em torno de objetos, que representam entidades do mundo real. Para entender isso em detalhes, precisamos explorar os conceitos de classes, objetos e atributos.
+### **Classes, Objetos, Atributos**
+
+### 1. Classes:
+
+#### **Definição**
+
+- Uma classe é um modelo ou molde que define os atributos (características) e métodos (comportamentos) de um objeto.
+
+- Pensa-se nela como uma "receita" ou "plano" para criar objetos.
+```java
+Estrutura de uma Classe em Java
+        
+public class Produto {
+    // Atributos da classe
+    String nome;
+    double preco;
+    int quantidade;
+
+    // Método da classe
+    public double calcularValorTotal() {
+        return preco * quantidade;
+    }
+}
+
+```
+#### Componentes de uma Classe
+1. Nome: A identidade da classe (Produto, por exemplo).
+2. Atributos: Variáveis que armazenam as informações do objeto (classe).
+3. Métodos: Funções que definem os comportamentos da classe (objeto).
+4. Construtores: Método especial usado para inicializar objetos.
+
+### 2. Objetos:
+#### **Definição**
+
+- Um objeto é uma instância de uma classe.
+- Cada objeto criado a partir de uma classe pode ter seus próprios valores para os atributos definidos pela classe
+
+```java
+Criação de um Objeto
+        
+public class TestaProduto {
+    public static void main(String[] args) {
+        // Criando um objeto da classe Produto
+        Produto p1 = new Produto();
+        
+        // Atribuindo valores aos atributos do objeto
+        p1.nome = "Notebook";
+        p1.preco = 3500.00;
+        p1.quantidade = 5;
+
+        // Chamando um método do objeto
+        System.out.println("Valor total: " + p1.calcularValorTotal());
+    }
+}
+
+```
+
+#### Características dos Objetos
+- Estado: Determinado pelos valores de seus atributos.
+  - Exemplo: nome = "Notebook", preco = 3500.00, quantidade = 5.
+- Comportamento: Definido pelos métodos que podem ser chamados no objeto.
+  - Exemplo: p1.calcularValorTotal() retorna o valor total no estoque.
+- Identidade: Cada objeto tem uma identidade única, mesmo que os valores dos atributos sejam iguais a outro objeto.
+
+### 2. Atributos:
+#### **Definição**
+- Os atributos são as variáveis que armazenam os dados ou propriedades de um objeto.
+- Eles definem o estado de um objeto.
+
+#### **Tipos de Atributos**
+1. Atributos de instância: Cada objeto tem sua própria cópia desses atributos.
+   - Exemplo: Cada `Produto` pode ter valores diferentes para `nome`, `preco` e `quantidade`.
+2. Atributos estáticos: Pertencem à classe e não a objetos individuais.
+
+Exemplo
+```java
+public static double taxaDesconto;
+```
+### Modificadores de Acesso ###
+`public`: Atributo acessível de qualquer lugar.
+
+`private`: Atributo acessível apenas dentro da própria classe (boa prática).
+
+
+
+# **Resumo: Relação Entre Classe, Objeto e Atributos**
+
+| **Termo**  | **Descrição**                                   | **Exemplo**                 |
+|------------|--------------------------------------------------|-----------------------------|
+| **Classe** | Modelo para criar objetos                        | `Produto`                   |
+| **Objeto** | Instância de uma classe                          | `Produto p1 = new Produto();` |
+| **Atributo** | Característica que define o estado do objeto  | `nome`, `preco`, `quantidade` |
+
+## **Exemplo Prático**
+
+### **Classe Produto**
+```java
+public class Produto {
+    // Atributos da classe
+    private String nome;
+    private double preco;
+    private int quantidade;
+
+    // Construtor para inicializar os atributos
+    public Produto(String nome, double preco, int quantidade) {
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
+
+    // Métodos para acessar os atributos (Getters)
+    public String getNome() {
+        return nome;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    // Método para calcular valor total no estoque
+    public double calcularValorTotal() {
+        return preco * quantidade;
+    }
+}
+```
+Criação de um Objeto
+
+```java
+public class TestaProduto {
+    public static void main(String[] args) {
+        // Criando um objeto da classe Produto
+        Produto p1 = new Produto("Notebook", 3500.00, 5);
+
+        // Exibindo informações sobre o produto
+        System.out.println("Nome: " + p1.getNome());
+        System.out.println("Preço: " + p1.getPreco());
+        System.out.println("Quantidade: " + p1.getQuantidade());
+        System.out.println("Valor Total: " + p1.calcularValorTotal());
+    }
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## **2. Estrutura **
+### **Definição** 
