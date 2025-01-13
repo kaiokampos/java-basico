@@ -285,4 +285,30 @@ System.out.println("Soma: " + soma);
 sc.close();
 ```
 
+## **2. Estrutura Repetitiva `for`**
+### **Definição**
+   Executa um bloco de comandos para um intervalo de valores.
+   Usada quando se sabe previamente a quantidade de repetições.
+### **Sintaxe**
+```java
+for (início; condição; incremento) {
+    // comandos
+}
+```
+Exemplo
+Problema: Ler N números inteiros e calcular a soma.
+```java
+import java.util.Scanner;
 
+Scanner sc = new Scanner(System.in);
+int N = sc.nextInt();
+int soma = 0;
+
+for (int i = 0; i < N; i++) {
+    int num = sc.nextInt();
+    soma += num;
+}
+System.out.println("Soma: " + soma);
+sc.close();
+
+```
