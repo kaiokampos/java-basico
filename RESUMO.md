@@ -541,7 +541,101 @@ public class TestaProduto {
         System.out.println("Valor Total: " + p1.calcularValorTotal());
     }
 }
+```
 
+## Resumo: Construtores, Palavra `this`, Sobrecarga e Encapsulamento
+
+### 1. **Construtores**
+- Executam durante a instanciação do objeto.
+- Usos principais:
+    - Iniciar valores dos atributos.
+    - Exigir que o objeto receba dados ao ser criado.
+- Se um construtor personalizado não for especificado, a classe fornece um construtor padrão:
+  ```java
+  Product p = new Product();
+  ```
+- Possibilidade de sobrecarga de construtores (vários construtores com diferentes listas de parâmetros):
+  ```java
+  public Product(String name, double price) {
+      this.name = name;
+      this.price = price;
+  }
+  ```
+
+### 2. **Palavra `this`**
+- Referência ao próprio objeto.
+- Usos comuns:
+    - Diferenciar atributos de variáveis locais.
+    - Passar o objeto atual como argumento para métodos.
+
+Exemplo para diferenciar atributos locais:
+```java
+public Product(String name, double price) {
+    this.name = name;
+    this.price = price;
+}
+```
+
+### 3. **Sobrecarga**
+- Permite que uma classe tenha métodos ou construtores com o mesmo nome, mas diferentes listas de parâmetros.
+
+Exemplo:
+```java
+public Product(String name, double price) { ... }
+public Product(String name) { ... }
+```
+
+### 4. **Encapsulamento**
+- Oculta os detalhes de implementação de uma classe, expondo apenas operações seguras.
+
+#### Princípios:
+- Manter o estado dos objetos consistente.
+- Proteger atributos com modificadores de acesso (`private`, `public`, etc.).
+- Utilizar **getters** e **setters** para acessar atributos privados:
+
+Exemplo:
+```java
+private String name;
+private double price;
+
+public String getName() {
+    return name;
+}
+
+public void setName(String name) {
+    this.name = name;
+}
+```
+
+### 5. **Modificadores de Acesso**
+- `private`: acesso apenas dentro da classe.
+- `protected`: acesso no mesmo pacote e em subclasses.
+- `(default)`: acesso no mesmo pacote.
+- `public`: acesso em qualquer classe.
+
+### Exercício Prático
+**Sistema bancário:**
+- Cadastro de conta bancária com opção de valor inicial.
+- Operações: Depósito, Saque (com taxa).
+- Controle de saldo usando princípios de encapsulamento e sobrecarga de construtores.
+
+**Exemplo:**
+```text
+Enter account number: 8532
+Enter account holder: Alex Green
+Is there an initial deposit (y/n)? y
+Enter initial deposit value: 500.00
+
+Account data:
+Account 8532, Holder: Alex Green, Balance: $ 500.00
+
+Enter a deposit value: 200.00
+Updated account data:
+Account 8532, Holder: Alex Green, Balance: $ 700.00
+
+Enter a withdraw value: 300.00
+Updated account data:
+Account 8532, Holder: Alex Green, Balance: $ 395.00
 ```
 
 
@@ -567,8 +661,5 @@ public class TestaProduto {
 
 
 
-
-
-
-## **2. Estrutura **
+## **Estrutura **
 ### **Definição** 
