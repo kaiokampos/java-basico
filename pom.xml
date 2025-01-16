@@ -20,6 +20,7 @@
         <module>exercicio-estrutura-repetitiva</module>
         <module>operadores-bitwise</module>
         <module>orientacao-a-objeto</module>
+        <module>vetores</module>
     </modules>
 
     <properties>

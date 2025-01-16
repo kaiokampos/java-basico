@@ -638,7 +638,52 @@ Updated account data:
 Account 8532, Holder: Alex Green, Balance: $ 395.00
 ```
 
+## Resumo: Memória, Arrays e Listas em Java
 
+### **1. Tipos de Dados em Java**
+- **Tipos Referência**: Variáveis que armazenam endereços para objetos na memória.
+- **Tipos Valor (Primitivos)**: Variáveis que armazenam diretamente os dados.
+
+![estrutuar de uma aplicação](assets/images/referencia-valor.png)
+
+### **2. Gestão de Memória**
+- **Garbage Collector**: Automatiza a liberação de memória desalocando objetos que não têm mais referências.
+- **Escopo Local**: Variáveis locais são desalocadas assim que seu escopo termina.
+
+### **3. Arrays - (Vetores)**
+- Em programação, "vetor" é o nome dado a arranjos unidimensionais.
+- Estruturas homogêneas e ordenadas que armazenam elementos do mesmo tipo.
+- **Propriedades:**
+    - **Tamanho fixo**: definido na criação.
+    - **Acesso imediato**: elementos acessíveis por índices.
+     - Alocada de uma vez só, em um bloco contíguo de memória
+- **Vantagens:**
+   - Acesso imediato aos elementos pela sua posição
+- **Desvantagens:**
+    - Tamanho fixo
+    - Dificuldade para se realizar inserções e deleções.
+- **Exemplos:**
+    - Armazenar alturas de pessoas e calcular a média.
+    - Armazenar dados de produtos e calcular o preço médio.
+
+### **4. Listas**
+- Estruturas ordenadas com tamanho variável, alocadas sob demanda.
+- **Implementações Comuns:** `ArrayList`, `LinkedList`.
+- **Operações:**
+    - Adicionar, remover, acessar elementos.
+    - Filtrar e buscar com expressões lambda.
+
+### **5. Matrizes**
+- Estruturas bidimensionais (vetor de vetores).
+- **Vantagens:** Acesso imediato por posições.
+- **Exercícios Práticos:**
+    - Mostrar a diagonal principal de uma matriz.
+    - Identificar valores adjacentes a um elemento específico.
+
+### **Exercícios Práticos**
+- **Aluguel de Quartos:** Gerenciamento de ocupação.
+- **Cadastro e Aumento de Salário:** Manipulação de dados de funcionários.
+- **Manipulação de Matrizes:** Busca de valores adjacentes e análise de dados.
 
 
 
