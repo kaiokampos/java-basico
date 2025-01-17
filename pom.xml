@@ -21,6 +21,7 @@
         <module>operadores-bitwise</module>
         <module>orientacao-a-objeto</module>
         <module>vetores</module>
+        <module>listas</module>
     </modules>
 
     <properties>

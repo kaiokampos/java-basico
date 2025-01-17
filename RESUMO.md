@@ -667,12 +667,66 @@ Account 8532, Holder: Alex Green, Balance: $ 395.00
     - Armazenar dados de produtos e calcular o preço médio.
 
 ### **4. Listas**
-- Estruturas ordenadas com tamanho variável, alocadas sob demanda.
+
+Lista é uma estrutura de dados:
+- Homogênea (dados do mesmo tipo)
+- Ordenada (elementos acessados por meio de posições)
+- Inicia vazia, e seus elementos são alocados sob demanda
+- Cada elemento ocupa um "nó" (ou nodo) da lista
+- Tipo (interface): List
 - **Implementações Comuns:** `ArrayList`, `LinkedList`.
+
+- **Vantagens:**
+  - Tamanho variável
+  - Facilidade para se realizar inserções e deleções
+
+- **Desvantagens:**
+  - Acesso sequencial aos elementos*
+
 - **Operações:**
     - Adicionar, remover, acessar elementos.
     - Filtrar e buscar com expressões lambda.
+ 
 
+- **Demo:**
+- Tamanho da lista: `size()`
+- Obter o elemento de uma posição: `get(position)`
+- Inserir elemento na lista: `add(obj)`, `add(int, obj)`
+- Remover elementos da lista: `remove(obj)`, `remove(int)`, `removeIf(Predicate)`
+- Encontrar posição de elemento: `indexOf(obj)`, `lastIndexOf(obj)`
+- Filtrar lista com base em predicado:
+  - List<Integer> result = `list.stream().filter(x -> x > 4).collect(Collectors.toList());`
+- Encontrar primeira ocorrência com base em predicado:
+  - Integer result = `list.stream().filter(x -> x > 4).findFirst().orElse(null);`
+```java
+List<String> list = new ArrayList<>();
+list.add("Maria");
+list.add("Alex");
+list.add("Bob");
+list.add("Anna");
+list.add(2, "Marco");
+System.out.println(list.size());
+for (String x : list) {
+System.out.println(x);
+}
+System.out.println("---------------------");
+list.removeIf(x -> x.charAt(0) == 'M');
+for (String x : list) {
+System.out.println(x);
+}
+System.out.println("---------------------");
+System.out.println("Index of Bob: " + list.indexOf("Bob"));
+System.out.println("Index of Marco: " + list.indexOf("Marco"));
+System.out.println("---------------------");
+List<String> result = list.stream().filter(x -> x.charAt(0) == 'A').collect(Collectors.toList());
+for (String x : result) {
+System.out.println(x);
+}
+System.out.println("---------------------");
+String name = list.stream().filter(x -> x.charAt(0) == 'J').findFirst().orElse(null);
+System.out.println(name);
+}
+```
 ### **5. Matrizes**
 - Estruturas bidimensionais (vetor de vetores).
 - **Vantagens:** Acesso imediato por posições.
