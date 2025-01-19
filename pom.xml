@@ -22,6 +22,7 @@
         <module>orientacao-a-objeto</module>
         <module>vetores</module>
         <module>listas</module>
+        <module>data-hora</module>
     </modules>
 
     <properties>
