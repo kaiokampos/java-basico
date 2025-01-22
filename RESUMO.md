@@ -739,3 +739,80 @@ System.out.println(name);
 - **Cadastro e Aumento de Salário:** Manipulação de dados de funcionários.
 - **Manipulação de Matrizes:** Busca de valores adjacentes e análise de dados.
 
+## Resumo: Enumerações e Composição em Java
+
+### **1. Enumerações**
+- **Definição**:
+  - Tipo especial para representar um conjunto de constantes relacionadas.
+  - Palavra-chave: `enum`.
+  - Melhora a semântica, legibilidade e auxilia o compilador.
+- **Exemplo**:
+```java
+public enum OrderStatus {
+    PENDING_PAYMENT,
+    PROCESSING,
+    SHIPPED,
+    DELIVERED;
+}
+```
+- **Conversão**:
+  - De `String` para enum: `OrderStatus.valueOf("DELIVERED");`.
+- **Uso em UML**: Representa estados ou valores fixos em um diagrama.
+
+**Por questões de design tais como organização, flexibilidade, reuso,
+delegação, etc., há várias categorias de classes:**
+![Categorias de Classes](/assets/images/categoraiClasses.png)
+
+### **2. Composição**
+- **Definição**:
+  - Tipo de associação onde um objeto contém outro.
+  - Relação "tem-um" ou "tem-vários".
+- **Vantagens**:
+  - Melhor organização (divisão de responsabilidades).
+  - Maior coesão e flexibilidade.
+  - Reuso de código.
+- **Exemplo em UML**: Usa o diamante preto para simbolizar a composição.
+
+### **3. Exercícios Resolvidos**
+
+#### **Exercício 1: Trabalhador com Contratos**
+- **Problema**: Calcular o salário de um trabalhador com base nos contratos de um mês específico.
+- **Entradas**:
+  - Nome, nível, salário base do trabalhador.
+  - Dados de N contratos (data, valor por hora, duração).
+- **Saída**: Salário total no mês.
+- **Exemplo**:
+```text
+Enter month and year to calculate income (MM/YYYY): 08/2018
+Income for 08/2018: 3000.00
+```
+
+#### **Exercício 2: Postagens com Comentários**
+- **Problema**: Criar postagens com título, data, conteúdo, likes e comentários.
+- **Exemplo**:
+```text
+Traveling to New Zealand
+12 Likes - 21/06/2018 13:05:44
+I'm going to visit this wonderful country!
+Comments:
+- Have a nice trip
+- Wow that's awesome!
+```
+
+#### **Exercício 3: Pedido com Itens**
+- **Problema**: Processar dados de um pedido com N itens.
+- **Entradas**:
+  - Dados do cliente (nome, e-mail, data de nascimento).
+  - Status do pedido e detalhes dos itens (nome, preço, quantidade).
+- **Saída**: Sumário do pedido, incluindo total.
+- **Exemplo**:
+```text
+ORDER SUMMARY:
+Order moment: 20/04/2018 11:25:09
+Order status: PROCESSING
+Client: Alex Green (15/03/1985) - alex@gmail.com
+Order items:
+- TV, $1000.00, Quantity: 1, Subtotal: $1000.00
+- Mouse, $40.00, Quantity: 2, Subtotal: $80.00
+Total price: $1080.00
+```
