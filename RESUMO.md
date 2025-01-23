@@ -816,3 +816,103 @@ Order items:
 - Mouse, $40.00, Quantity: 2, Subtotal: $80.00
 Total price: $1080.00
 ```
+
+## Resumo: Herança e Polimorfismo em Java
+
+### **1. Herança**
+- **Definição**: Permite que uma classe (subclasse) herde atributos e métodos de outra classe (superclasse).
+- **Vantagens**:
+  - Reuso de código.
+  - Polimorfismo.
+- **Sintaxe**:
+  ```java
+  class Subclass extends Superclass {
+      // implementação
+  }
+  ```
+- **Exemplo**: Uma conta bancária genérica e contas especializadas, como `SavingsAccount` e `BusinessAccount`.
+![](assets/images/heranca-account.png)
+
+### **2. Upcasting e Downcasting**
+- **Upcasting**: Conversão de uma subclasse para uma superclasse.
+  - Usado em polimorfismo.
+- **Downcasting**: Conversão de uma superclasse para uma subclasse.
+  - Necessário verificar o tipo com `instanceof` antes de fazer o casting.
+- **Exemplo**:
+  ```java
+  Account acc = new BusinessAccount(1002, "Maria", 0.0, 500.0);
+  if (acc instanceof BusinessAccount) {
+      BusinessAccount bacc = (BusinessAccount) acc;
+      bacc.loan(100.0);
+  }
+  ```
+
+### **3. Sobrescrita de Métodos e Palavra `super`**
+- **Sobrescrita (@Override)**:
+  - Redefine o comportamento de um método da superclasse na subclasse.
+  - Exemplo:
+    ```java
+    @Override
+    public void withdraw(double amount) {
+        balance -= amount;
+    }
+    ```
+- **Palavra `super`**:
+  - Chama a implementação do método na superclasse.
+  - Exemplo:
+    ```java
+    @Override
+    public void withdraw(double amount) {
+        super.withdraw(amount);
+        balance -= 2.0;
+    }
+    ```
+
+### **4. Classes e Métodos `final`**
+- **Classe `final`**: Impede que a classe seja herdada.
+  ```java
+  public final class SavingsAccount { ... }
+  ```
+- **Método `final`**: Impede que o método seja sobrescrito.
+  ```java
+  public final void withdraw(double amount) { ... }
+  ```
+- **Vantagens**:
+  - Segurança: Garante regras do negócio.
+  - Performance: Melhora a otimização em tempo de execução.
+
+### **5. Polimorfismo**
+- Permite que variáveis de um tipo genérico apontem para objetos de tipos específicos, executando comportamentos diferentes.
+- Exemplo:
+  ```java
+  Account x = new SavingsAccount(1023, "Maria", 1000.0, 0.01);
+  x.withdraw(50.0); // Comportamento da classe SavingsAccount
+  ```
+
+### **6. Classes Abstratas e Métodos Abstratos**
+- **Classe Abstrata**: Não pode ser instanciada; usada como modelo.
+  ```java
+  public abstract class Account { ... }
+  ```
+- **Método Abstrato**: Declarado na classe abstrata, mas implementado pelas subclasses.
+  ```java
+  public abstract double getArea();
+  ```
+
+### **7. Exercícios Práticos**
+
+#### **7.1. Cálculo de Pagamentos**
+- **Problema**: Calcular o pagamento de funcionários próprios e terceirizados.
+- **Destaque**: Funcionários terceirizados recebem um bônus adicional.
+- **Repositório**: [GitHub - inheritance4-java](https://github.com/acenelio/inheritance4-java).
+
+#### **7.2. Etiquetas de Preços**
+- **Problema**: Exibir etiquetas de preço de produtos comuns, usados e importados.
+- **Destaque**: Produtos importados incluem taxa de alfândega; produtos usados incluem data de fabricação.
+- **Repositório**: [GitHub - inheritance5-java](https://github.com/acenelio/inheritance5-java).
+
+#### **7.3. Cálculo de Impostos**
+- **Problema**: Calcular impostos pagos por pessoas físicas e jurídicas.
+- **Destaque**: Regras diferentes para cada tipo de contribuinte.
+- **Repositório**: [GitHub - inheritance8-java](https://github.com/acenelio/inheritance8-java).
+

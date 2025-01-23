@@ -2,16 +2,19 @@ package com.kaiokampos.exercicios.entities;
 
 import com.kaiokampos.exercicios.entities.enums.OrderStatus;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Order {
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
     private Date moment;
     private OrderStatus status;
 
     private Client client;
-    List<OrderItem> orderItems = new ArrayList<>();
+    List<OrderItem> items = new ArrayList<>();
 
     public Order(){}
 
@@ -45,21 +48,17 @@ public class Order {
         this.client = client;
     }
 
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
     public void addItem(OrderItem item){
-        orderItems.add(item);
+        items.add(item);
     }
 
     public void removeItem(OrderItem item){
-        orderItems.remove(item);
+        items.remove(item);
     }
 
-    public Double total(){
-        Double total = 0.0;
-        for (OrderItem item : orderItems){
+    public double total(){
+        double total = 0.0;
+        for (OrderItem item : items){
             total += item.subTotal();
         }
         return total;
@@ -67,11 +66,19 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "moment=" + moment +
-                ", status=" + status +
-                ", client=" + client +
-                ", orderItems=" + orderItems +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Order moment: ");
+        sb.append(sdf.format(moment) + "\n");
+        sb.append("Order status: ");
+        sb.append(status + "\n");
+        sb.append("Client: ");
+        sb.append(client + "\n");
+        sb.append("Order items:\n");
+        for (OrderItem item : items) {
+            sb.append(item + "\n");
+        }
+        sb.append("Total price: $");
+        sb.append(String.format("%.2f", total()));
+        return sb.toString();
     }
 }

@@ -24,6 +24,8 @@
         <module>listas</module>
         <module>data-hora</module>
         <module>enum</module>
+        <module>trabalhando-com-arquivos</module>
+        <module>heranca-e-polimorfismo</module>
     </modules>
 
     <properties>
