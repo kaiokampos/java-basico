@@ -883,11 +883,28 @@ Total price: $1080.00
 
 ### **5. Polimorfismo**
 - Permite que variáveis de um tipo genérico apontem para objetos de tipos específicos, executando comportamentos diferentes.
-- Exemplo:
-  ```java
-  Account x = new SavingsAccount(1023, "Maria", 1000.0, 0.01);
-  x.withdraw(50.0); // Comportamento da classe SavingsAccount
-  ```
+  - Exemplo:
+    ```java
+    Account:
+      public void withdraw(double amount) {
+      balance -= amount + 5.0;
+    }
+    
+    SavingsAccount:
+    @Override
+    public void withdraw(double amount) {
+      balance -= amount;
+    }
+    
+    Account x = new Account(1020, "Alex", 1000.0);
+    Account y = new SavingsAccount(1023, "Maria", 1000.0, 0.01);
+    
+    x.withdraw(50.0);
+    y.withdraw(50.0);
+    
+    
+   
+    ```
 
 ### **6. Classes Abstratas e Métodos Abstratos**
 - **Classe Abstrata**: Não pode ser instanciada; usada como modelo.
