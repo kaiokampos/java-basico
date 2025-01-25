@@ -9,7 +9,7 @@ public class UsedProduct extends Product{
     public UsedProduct() {
     }
 
-    public UsedProduct(String name, Double price) {
+    public UsedProduct(String name, Double price, DateTimeFormatter dateTimeFormatter) {
         super(name, price);
         this.manufactureDate = manufactureDate;
     }
