@@ -26,6 +26,8 @@
         <module>enum</module>
         <module>trabalhando-com-arquivos</module>
         <module>heranca-e-polimorfismo</module>
+        <module>exResolvido</module>
+        <module>exFixacaoPolimorfismo</module>
     </modules>
 
     <properties>
