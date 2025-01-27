@@ -921,15 +921,12 @@ Total price: $1080.00
 #### **7.1. Cálculo de Pagamentos**
 - **Problema**: Calcular o pagamento de funcionários próprios e terceirizados.
 - **Destaque**: Funcionários terceirizados recebem um bônus adicional.
-- **Repositório**: [GitHub - inheritance4-java](https://github.com/acenelio/inheritance4-java).
-
+""
 #### **7.2. Etiquetas de Preços**
 - **Problema**: Exibir etiquetas de preço de produtos comuns, usados e importados.
 - **Destaque**: Produtos importados incluem taxa de alfândega; produtos usados incluem data de fabricação.
-- **Repositório**: [GitHub - inheritance5-java](https://github.com/acenelio/inheritance5-java).
 
 #### **7.3. Cálculo de Impostos**
 - **Problema**: Calcular impostos pagos por pessoas físicas e jurídicas.
 - **Destaque**: Regras diferentes para cada tipo de contribuinte.
-- **Repositório**: [GitHub - inheritance8-java](https://github.com/acenelio/inheritance8-java).
 
