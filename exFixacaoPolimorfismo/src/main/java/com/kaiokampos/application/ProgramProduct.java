@@ -16,6 +16,7 @@ public class ProgramProduct {
 
         System.out.print("Enter the number of products: ");
 
+        System.out.println("FAzer os exercicios");
 
         sc.close();
 
