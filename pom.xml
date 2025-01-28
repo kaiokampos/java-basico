@@ -28,6 +28,7 @@
         <module>heranca-e-polimorfismo</module>
         <module>exResolvido</module>
         <module>exFixacaoPolimorfismo</module>
+        <module>excecoes</module>
     </modules>
 
     <properties>
