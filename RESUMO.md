@@ -930,3 +930,92 @@ Total price: $1080.00
 - **Problema**: Calcular impostos pagos por pessoas físicas e jurídicas.
 - **Destaque**: Regras diferentes para cada tipo de contribuinte.
 
+## Resumo: Tratamento de Exceções em Java
+
+### **1. O que são Exceções?**
+- **Definição**: Condição de erro ou comportamento inesperado encontrado durante a execução de um programa.
+- **Hierarquia de Exceções**:
+  - `Throwable`
+    - `Exception` (obrigatório tratar ou propagar)
+    - `RuntimeException` (não obriga tratamento)
+
+### **2. Benefícios do Tratamento de Exceções**
+- Organiza e melhora a legibilidade do código.
+- Permite delegar a lógica de erro para classes responsáveis.
+- Exceções podem carregar informações adicionais.
+
+### **3. Blocos Try-Catch**
+- **Estrutura básica**:
+  ```java
+  try {
+      // Código que pode gerar uma exceção
+  } catch (ExceptionType e) {
+      // Tratamento da exceção
+  }
+  ```
+- **Exemplo**:
+  ```java
+  try {
+      String[] vect = sc.nextLine().split(" ");
+      int position = sc.nextInt();
+      System.out.println(vect[position]);
+  } catch (ArrayIndexOutOfBoundsException e) {
+      System.out.println("Invalid position!");
+  } catch (InputMismatchException e) {
+      System.out.println("Input error");
+  }
+  ```
+
+### **4. Pilha de Chamadas (Call Stack)**
+- Exceções são propagadas até serem tratadas ou o programa ser encerrado.
+- **Exemplo**:
+  ```java
+  public static void method1() {
+      method2();
+  }
+  public static void method2() {
+      // Exceção lançada aqui será propagada
+  }
+  ```
+
+### **5. Bloco Finally**
+- Executado independentemente de haver ou não exceção.
+- **Usado para liberar recursos** (arquivos, conexões, etc.).
+- **Exemplo**:
+  ```java
+  try {
+      sc = new Scanner(file);
+  } catch (IOException e) {
+      System.out.println("Error opening file");
+  } finally {
+      if (sc != null) {
+          sc.close();
+      }
+  }
+  ```
+
+### **6. Exceções Personalizadas**
+- Criar exceções específicas para regras de negócio.
+- **Exemplo**:
+  ```java
+  public class DomainException extends Exception {
+      public DomainException(String msg) {
+          super(msg);
+      }
+  }
+  ```
+
+### **7. Exercícios Resolvidos**
+
+#### **7.1. Sistema de Reservas de Hotel**
+- **Problema**: Atualizar reserva de hotel, garantindo datas válidas.
+- **Repositório**: [GitHub - exceptions1-java](https://github.com/acenelio/exceptions1-java).
+
+#### **7.2. Conta Bancária com Saque**
+- **Problema**: Evitar saques acima do saldo ou do limite.
+- **Exemplo**:
+  ```text
+  Enter amount for withdraw: 400.00
+  Withdraw error: The amount exceeds withdraw limit
+  ```
+- **Repositório**: [GitHub - exceptions2-java](https://github.com/acenelio/exceptions2-java).
