@@ -1009,7 +1009,6 @@ Total price: $1080.00
 
 #### **7.1. Sistema de Reservas de Hotel**
 - **Problema**: Atualizar reserva de hotel, garantindo datas válidas.
-- **Repositório**: [GitHub - exceptions1-java](https://github.com/acenelio/exceptions1-java).
 
 #### **7.2. Conta Bancária com Saque**
 - **Problema**: Evitar saques acima do saldo ou do limite.
@@ -1018,4 +1017,4 @@ Total price: $1080.00
   Enter amount for withdraw: 400.00
   Withdraw error: The amount exceeds withdraw limit
   ```
-- **Repositório**: [GitHub - exceptions2-java](https://github.com/acenelio/exceptions2-java).
+
