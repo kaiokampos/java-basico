@@ -1018,3 +1018,4 @@ Total price: $1080.00
   Withdraw error: The amount exceeds withdraw limit
   ```
 
+Configuração do ambiente windows
