@@ -1018,6 +1018,85 @@ Total price: $1080.00
   Withdraw error: The amount exceeds withdraw limit
   ```
 
-Configuração do ambiente windows
+## Resumo: Interfaces em Java
 
-Aulas sobre arquivos
+### **1. O que é uma Interface?**
+- Uma interface define um conjunto de métodos que uma classe deve implementar.
+- Serve para criar sistemas com **baixo acoplamento** e mais flexíveis.
+- **Exemplo:**
+  ```java
+  interface Shape {
+      double area();
+      double perimeter();
+  }
+  ```
+
+### **2. Problema Exemplo: Locadora de Carros**
+- Uma locadora cobra valores diferentes conforme a duração do aluguel.
+- Imposto varia de acordo com o valor total.
+- Exemplo de cálculo:
+  ```text
+  Duração: 5 horas → Pagamento: 50.00, Imposto: 10.00, Total: 60.00
+  Duração: 3 dias → Pagamento: 390.00, Imposto: 58.50, Total: 448.50
+  ```
+- **Repositório:** [GitHub - interfaces1-java](https://github.com/acenelio/interfaces1-java).
+
+### **3. Inversão de Controle e Injeção de Dependência**
+- **Acoplamento forte:** Classe `RentalService` conhece a dependência concreta.
+- **Acoplamento fraco:** A classe depende de uma interface e não de uma implementação específica.
+- **Exemplo:**
+  ```java
+  class RentalService {
+      private TaxService taxService;
+      public RentalService(TaxService taxService) {
+          this.taxService = taxService;
+      }
+  }
+  ```
+
+### **4. Exercício: Processamento de Contratos**
+- **Problema:** Gerar parcelas para um contrato baseado no número de meses.
+- **Regras:**
+  - Juro de 1% ao mês + taxa de pagamento de 2%.
+- **Exemplo:**
+  ```text
+  Parcelas:
+  25/07/2018 - 206.04
+  25/08/2018 - 208.08
+  25/09/2018 - 210.12
+  ```
+- **Repositório:** [GitHub - interfaces4-java](https://github.com/acenelio/interfaces4-java).
+
+### **5. Herança vs. Interfaces**
+- **Herança:** Reuso de código entre classes.
+- **Interfaces:** Contrato que as classes devem cumprir.
+- **Problema do Diamante:** Ambiguidade gerada por herança múltipla. Java evita isso ao permitir que uma classe implemente múltiplas interfaces.
+
+### **6. Interface `Comparable`**
+- Permite ordenar objetos de forma natural.
+- **Exemplo:**
+  ```java
+  public class Employee implements Comparable<Employee> {
+      @Override
+      public int compareTo(Employee other) {
+          return name.compareTo(other.getName());
+      }
+  }
+  ```
+- **Uso:**
+  ```java
+  Collections.sort(list);
+  ```
+
+### **7. Default Methods (Java 8+)**
+- Interfaces agora podem ter métodos concretos.
+- Evita repetição de código e melhora a compatibilidade com sistemas antigos.
+- **Exemplo:**
+  ```java
+  interface PaymentService {
+      default double tax(double amount) {
+          return amount * 0.02;
+      }
+  }
+  ```
+- **Repositório:** [GitHub - interfaces5-java](https://github.com/acenelio/interfaces5-java).
