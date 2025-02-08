@@ -1039,7 +1039,6 @@ Total price: $1080.00
   Duração: 5 horas → Pagamento: 50.00, Imposto: 10.00, Total: 60.00
   Duração: 3 dias → Pagamento: 390.00, Imposto: 58.50, Total: 448.50
   ```
-- **Repositório:** [GitHub - interfaces1-java](https://github.com/acenelio/interfaces1-java).
 
 ### **3. Inversão de Controle e Injeção de Dependência**
 - **Acoplamento forte:** Classe `RentalService` conhece a dependência concreta.
@@ -1065,7 +1064,6 @@ Total price: $1080.00
   25/08/2018 - 208.08
   25/09/2018 - 210.12
   ```
-- **Repositório:** [GitHub - interfaces4-java](https://github.com/acenelio/interfaces4-java).
 
 ### **5. Herança vs. Interfaces**
 - **Herança:** Reuso de código entre classes.
