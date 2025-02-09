@@ -1097,4 +1097,74 @@ Total price: $1080.00
       }
   }
   ```
-iniciando generic,set,mapa,
+## Resumo: Generics, Set e Map em Java
+
+### **1. Generics**
+- **Definição**: Permite parametrizar classes, interfaces e métodos por tipo.
+- **Benefícios**:
+  - Reuso de código.
+  - Type safety (segurança de tipos).
+  - Melhor performance.
+- **Exemplo:**
+  ```java
+  List<String> list = new ArrayList<>();
+  list.add("Maria");
+  String name = list.get(0);
+  ```
+
+### **2. Genéricos Delimitados**
+- **Problema:** Encontrar o maior elemento de uma lista.
+- **Solução:** Usar `Comparable<T>` para restringir os tipos.
+  ```java
+  public static <T extends Comparable<T>> T max(List<T> list) {
+      if (list.isEmpty()) throw new IllegalStateException("List can't be empty");
+      T max = list.get(0);
+      for (T item : list) {
+          if (item.compareTo(max) > 0) max = item;
+      }
+      return max;
+  }
+  ```
+- **Repositório:** [GitHub - generics2-java](https://github.com/acenelio/generics2-java).
+
+### **3. Tipos Curinga (`?` e `? extends T`)**
+- **Uso:** Permite criar métodos genéricos que aceitam diferentes tipos de listas.
+- **Exemplo:**
+  ```java
+  public static void printList(List<?> list) {
+      for (Object obj : list) {
+          System.out.println(obj);
+      }
+  }
+  ```
+- **Problema:** Não é possível adicionar elementos a uma lista de tipo curinga.
+
+### **4. Conjuntos (`Set<T>`)**
+- **Definição:** Coleção de elementos únicos sem posição.
+- **Principais Implementações:**
+  - `HashSet`: Rápido (O(1)), não ordenado.
+  - `TreeSet`: Ordenado pelo `compareTo` (O(log(n))).
+  - `LinkedHashSet`: Mantém a ordem de inserção.
+- **Exemplo:**
+  ```java
+  Set<String> set = new HashSet<>();
+  set.add("TV");
+  set.add("Notebook");
+  System.out.println(set.contains("Notebook"));
+  ```
+- **Repositório:** [GitHub - set1-java](https://github.com/acenelio/set1-java).
+
+### **5. Map (`Map<K,V>`)**
+- **Definição:** Estrutura de dados baseada em pares chave-valor.
+- **Principais Implementações:**
+  - `HashMap`: Rápido (O(1)), não ordenado.
+  - `TreeMap`: Ordenado pelo `compareTo` (O(log(n))).
+  - `LinkedHashMap`: Mantém a ordem de inserção.
+- **Exemplo:**
+  ```java
+  Map<String, Integer> votes = new HashMap<>();
+  votes.put("Maria", 10);
+  votes.put("Alex", 5);
+  System.out.println("Maria: " + votes.get("Maria"));
+  ```
+- **Repositório:** [GitHub - map1-java](https://github.com/acenelio/map1-java).
