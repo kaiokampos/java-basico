@@ -1,3 +1,5 @@
+import entities.Employee;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,21 +10,22 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        String path = "C:\\KaioDev\\in.txt";
+        String path = "C:\\KaioDev\\nameSalary.txt";
 
-        List<String> nameList = new ArrayList<>();
+        List<Employee> nameSalaryList = new ArrayList<>();
 
         try (BufferedReader bufferedReader = new BufferedReader( new FileReader(path))) {
 
             String line = bufferedReader.readLine();
             while (line != null){
-                nameList.add(line);
+                String[] fields = line.split(",");
+                nameSalaryList.add(new Employee(fields[0], Double.parseDouble(fields[1])));
                 line = bufferedReader.readLine();
             }
-            Collections.sort(nameList);
+            Collections.sort(nameSalaryList);
 
-            for (String name : nameList){
-                System.out.println(name);
+            for (Employee employee : nameSalaryList){
+                System.out.println(employee.getName() + ", " + employee.getSalary());
             }
 
         } catch (IOException e) {
