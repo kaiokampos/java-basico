@@ -14,14 +14,16 @@ public class Program {
         try {
             connection = DB.getConnection();
 
-            preparedStatement = connection.prepareStatement("UPDATE seller SET BaseSalary = BaseSalary + ? WHERE (DepartmentId = ?)");
+            preparedStatement = connection.prepareStatement(
+                    "DELETE FROM department "
+                            + "WHERE "
+                            + "Id = ?");
 
-            preparedStatement.setDouble(1, 200);
-            preparedStatement.setInt(2, 2);
+            preparedStatement.setInt(1, 5);
 
             int rowsAffected = preparedStatement.executeUpdate();
 
-            System.out.println("Done! Rows affected "+ rowsAffected);
+            System.out.println("Done! Rows affected: " + rowsAffected);
 
         } catch (SQLException e) {
             e.printStackTrace();
