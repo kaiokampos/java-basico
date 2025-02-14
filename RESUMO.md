@@ -1125,7 +1125,6 @@ Total price: $1080.00
       return max;
   }
   ```
-- **Repositório:** [GitHub - generics2-java](https://github.com/acenelio/generics2-java).
 
 ### **3. Tipos Curinga (`?` e `? extends T`)**
 - **Uso:** Permite criar métodos genéricos que aceitam diferentes tipos de listas.
@@ -1152,7 +1151,6 @@ Total price: $1080.00
   set.add("Notebook");
   System.out.println(set.contains("Notebook"));
   ```
-- **Repositório:** [GitHub - set1-java](https://github.com/acenelio/set1-java).
 
 ### **5. Map (`Map<K,V>`)**
 - **Definição:** Estrutura de dados baseada em pares chave-valor.
@@ -1167,4 +1165,3 @@ Total price: $1080.00
   votes.put("Alex", 5);
   System.out.println("Maria: " + votes.get("Maria"));
   ```
-- **Repositório:** [GitHub - map1-java](https://github.com/acenelio/map1-java).
