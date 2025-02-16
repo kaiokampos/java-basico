@@ -1165,3 +1165,106 @@ Total price: $1080.00
   votes.put("Alex", 5);
   System.out.println("Maria: " + votes.get("Maria"));
   ```
+## Resumo: Acesso a Banco de Dados com JDBC
+
+### **1. Introdução ao JDBC**
+- **JDBC (Java Database Connectivity)**: API padrão do Java para acesso a bancos de dados.
+- Pacotes principais:
+  - `java.sql`
+  - `javax.sql` (API suplementar para servidores).
+- Documentação oficial:
+  - [JDBC Guide](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/).
+  - [JDBC API](https://docs.oracle.com/javase/8/docs/api/java/sql/package-summary.html).
+
+### **2. Configuração do Ambiente**
+- Instalar **MySQL Server** e **MySQL Workbench**.
+- Criar banco de dados `coursejdbc`.
+- Baixar e configurar **MySQL Java Connector** no Eclipse.
+- Criar o arquivo `db.properties` com credenciais de acesso ao banco.
+- Implementar classe `DB` para gerenciar conexões.
+
+### **3. Operações com JDBC**
+#### **Recuperação de Dados**
+- Classes principais:
+  - `Statement`
+  - `ResultSet`
+- Métodos úteis:
+  - `next()`, `beforeFirst()`, `absolute(int)`.
+- Exemplo de consulta:
+  ```java
+  ResultSet rs = st.executeQuery("SELECT * FROM department");
+  while (rs.next()) {
+      System.out.println(rs.getInt("Id") + " - " + rs.getString("Name"));
+  }
+  ```
+
+#### **Inserção de Dados**
+- Uso de `PreparedStatement` para evitar SQL Injection.
+- Exemplo com recuperação do ID gerado:
+  ```java
+  PreparedStatement st = conn.prepareStatement(
+      "INSERT INTO department (Name) VALUES (?)", 
+      Statement.RETURN_GENERATED_KEYS);
+  st.setString(1, "Tech");
+  int rowsAffected = st.executeUpdate();
+  ```
+
+#### **Atualização e Deleção de Dados**
+- Exemplo de **UPDATE**:
+  ```java
+  st.executeUpdate("UPDATE department SET Name = 'HR' WHERE Id = 2");
+  ```
+- Exemplo de **DELETE**:
+  ```java
+  st.executeUpdate("DELETE FROM department WHERE Id = 3");
+  ```
+
+### **4. Transações no JDBC**
+- Controle manual com `setAutoCommit(false)`, `commit()`, `rollback()`.
+- Exemplo:
+  ```java
+  conn.setAutoCommit(false);
+  try {
+      // Executar múltiplas operações
+      conn.commit();
+  } catch (SQLException e) {
+      conn.rollback();
+  }
+  ```
+
+### **5. Padrão DAO (Data Access Object)**
+- Separação entre lógica de negócios e acesso a dados.
+- Para cada entidade, um DAO correspondente:
+  - `DepartmentDao`, `SellerDao`, etc.
+- Uso de **Factory** para gerenciar instâncias de DAO.
+
+### **6. Implementação de DAO**
+#### **Exemplo: `findById`**
+- Consulta um vendedor pelo ID:
+  ```java
+  public Seller findById(int id) {
+      ResultSet rs = st.executeQuery("SELECT * FROM seller WHERE Id = ?");
+      if (rs.next()) {
+          return instantiateSeller(rs);
+      }
+      return null;
+  }
+  ```
+
+#### **Exemplo: `insert`**
+- Inserir um novo vendedor:
+  ```java
+  PreparedStatement st = conn.prepareStatement(
+      "INSERT INTO seller (Name, Email, BaseSalary) VALUES (?, ?, ?)", 
+      Statement.RETURN_GENERATED_KEYS);
+  st.setString(1, "Alex");
+  st.setString(2, "alex@gmail.com");
+  st.setDouble(3, 3000.0);
+  st.executeUpdate();
+  ```
+
+### **7. Exercícios Resolvidos**
+- Criar DAO para `Department` e `Seller`.
+- Implementar métodos CRUD (`findAll`, `insert`, `update`, `delete`).
+- Código-fonte disponível em:
+  - [GitHub - demo-dao-jdbc](https://github.com/acenelio/demo-dao-jdbc).
