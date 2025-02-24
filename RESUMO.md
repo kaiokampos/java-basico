@@ -1268,3 +1268,4 @@ Total price: $1080.00
 - Implementar métodos CRUD (`findAll`, `insert`, `update`, `delete`).
 - Código-fonte disponível em:
   - [GitHub - demo-dao-jdbc](https://github.com/acenelio/demo-dao-jdbc).
+testes
