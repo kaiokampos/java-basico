@@ -1269,3 +1269,4 @@ Total price: $1080.00
 - Código-fonte disponível em:
   - [GitHub - demo-dao-jdbc](https://github.com/acenelio/demo-dao-jdbc).
 testes
+estudos sobre aws
